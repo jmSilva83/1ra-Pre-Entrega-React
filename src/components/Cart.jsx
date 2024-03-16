@@ -172,20 +172,7 @@ const Cart = () => {
 
     // Calcular el precio total
     const totalPrice = cartItems.reduce((total, item) => {
-        if (
-            item &&
-            item.producto &&
-            typeof item.producto.precio === "number" &&
-            typeof item.cantidad === "number"
-        ) {
-            return total + item.cantidad * item.producto.precio;
-        } else {
-            console.error(
-                "El elemento del carrito no tiene la estructura esperada:",
-                item
-            );
-            return total;
-        }
+        return total + item.cantidad * item.producto.precio;
     }, 0);
 
     return (

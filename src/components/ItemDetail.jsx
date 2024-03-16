@@ -1218,9 +1218,12 @@ const ItemDetail = ({ producto, onAddToCart }) => {
     }, [producto]);
 
     const handleCantidadChange = (e) => {
-        const nuevaCantidad = parseInt(e.target.value, 10) || 1;
-        setCantidad(nuevaCantidad);
+        const nuevaCantidad = parseInt(e.target.value, 10);
+        if (!isNaN(nuevaCantidad)) {
+            setCantidad(nuevaCantidad);
+        }
     };
+
 
     const handleRestarCantidad = () => {
         setCantidad((prevCantidad) => Math.max(1, prevCantidad - 1));
@@ -1334,15 +1337,15 @@ const ItemDetail = ({ producto, onAddToCart }) => {
     );
 };
 
-ItemDetail.propTypes = {
+/*ItemDetail.propTypes = {
     producto: PropTypes.shape({
         nombre: PropTypes.string,
-        categoria: PropTypes.string,
+        categoria: PropTypes.number,
         imagen: PropTypes.string,
         precio: PropTypes.number,
         descripcion: PropTypes.string,
     }).isRequired,
     onAddToCart: PropTypes.func.isRequired,
-};
+};*/
 
 export default ItemDetail;

@@ -322,6 +322,7 @@ import { fakeApiCall } from "../utils/fakeApiCall";
 import { useCart } from "./CartUtils";
 import ItemDetail from "./ItemDetail";
 import productos from "../utils/MockProductosAsync.json";
+import CircularProgress from '@mui/material/CircularProgress';
 
 const ItemDetailContainer = () => {
     const { addToCart } = useCart();
@@ -336,7 +337,7 @@ const ItemDetailContainer = () => {
         });
     }, []);
 
-    if (loading) return <h1 className="text-center justify-center text-3xl pt-8">Cargando...</h1>;
+    if (loading) return <h1 className="text-center justify-center text-3xl pt-8"><CircularProgress color="secondary" /></h1>;
 
     // Convertir el objeto de productos en un array
     const productosArray = Object.values(productsCharged.productos);
