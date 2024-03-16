@@ -1,12 +1,20 @@
-/* eslint-disable react/prop-types */
-const ItemListcontainer = ({ greeting }) => {
+import PropTypes from 'prop-types';
+
+const ItemListContainer = ({ greeting }) => {
     return (
         <>
-            <div className="text-center text-xl text-white pt-20">
-                <span>{greeting}</span>
+            <div className="text-center text-6xl font-mono text-green-400 pt-28">
+                <span className="border-2 bg-zinc-800 bg-opacity-75 border-green-500 rounded-md p-2">
+                    {greeting}
+                </span>
             </div>
         </>
     );
 };
 
-export default ItemListcontainer;
+ItemListContainer.propTypes = {
+    greeting: PropTypes.string.isRequired,
+};
+
+export default ItemListContainer;
+
